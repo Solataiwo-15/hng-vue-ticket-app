@@ -10,9 +10,7 @@ The application maintains 100% feature parity and design consistency with the Re
 
 **The deployed Vue application can be viewed here:**
 
-**[https://your-VUE-APP-url.vercel.app](https://your-VUE-APP-url.vercel.app)**
-
-> **Note:** You will get this URL after deploying the Vue app to Vercel.
+**[https://hng-vue-ticket-app-phi.vercel.app/](https://hng-vue-ticket-app-phi.vercel.app/)**
 
 ---
 
@@ -24,7 +22,11 @@ The application maintains 100% feature parity and design consistency with the Re
 - **Simulated User Sessions:** User authentication is simulated using `localStorage`.
 - **Protected Routes:** The Dashboard and Ticket Management pages are secured using Vue Router's Navigation Guards.
 - **Dashboard:** A "smart" dashboard displaying key statistics in visually appealing cards.
-- **Full CRUD Functionality:** A complete Ticket Management system allowing users to Create, Read, Update, and Delete tickets, with state managed reactively.
+- **Full CRUD Functionality:** A complete Ticket Management system allowing users to:
+  - **C**reate new tickets via a modal form.
+  - **R**ead all existing tickets in a responsive grid.
+  - **U**pdate ticket details (title, description, status) via an edit modal.
+  - **D**elete tickets with a confirmation step.
 - **Responsive Design:** The entire application is fully responsive, featuring a slide-in sidebar menu for a polished mobile experience, managed with Vue's state.
 
 ---
