@@ -39,6 +39,7 @@ const userName = computed(() => {
     try {
       const sessionData = JSON.parse(session)
       return sessionData?.user?.name || 'User'
+      // eslint-disable-next-line no-unused-vars
     } catch (e) {
       return 'User'
     }
