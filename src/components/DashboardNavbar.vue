@@ -64,7 +64,29 @@ watch(
     closeMenu()
   },
 )
+
+watch(isMenuOpen, (isOpen) => {
+  const mainContent = document.querySelector('main')
+  if (mainContent) {
+    if (isOpen) {
+      mainContent.classList.add('blur-background')
+    } else {
+      mainContent.classList.remove('blur-background')
+    }
+  }
+})
 </script>
+
+<style>
+/* Change scoped to a global style tag for the blur */
+/* Add the blur class here */
+main.blur-background {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.3s ease-in-out;
+}
+</style>
 
 <style scoped>
 /* Paste all the CSS from our React Navbar.css here */

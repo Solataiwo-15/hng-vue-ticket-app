@@ -2,21 +2,69 @@
   <header class="main-header">
     <div class="container">
       <nav class="main-nav">
-        <RouterLink to="/" class="nav-logo">TicketApp</RouterLink>
-        <ul class="nav-links">
-          <li><RouterLink to="/auth/login" class="btn btn-text">Login</RouterLink></li>
-          <li><RouterLink to="/auth/signup" class="btn btn-primary">Get Started</RouterLink></li>
+        <RouterLink to="/" class="nav-logo" @click="closeMenu">TicketApp</RouterLink>
+
+        <ul :class="['nav-links', { active: isMenuOpen }]">
+          <li>
+            <RouterLink to="/auth/login" class="btn btn-text" @click="closeMenu">Login</RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/auth/signup" class="btn btn-primary" @click="closeMenu"
+              >Get Started</RouterLink
+            >
+          </li>
         </ul>
-        <!-- We will add the hamburger menu logic later -->
+
+        <button class="hamburger-menu" @click="isMenuOpen = !isMenuOpen">
+          <i :class="['fas', isMenuOpen ? 'fa-times' : 'fa-bars']"></i>
+        </button>
       </nav>
     </div>
   </header>
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
+import { ref, watch } from 'vue' // Import more hooks
+import { RouterLink, useRoute } from 'vue-router'
+
+const isMenuOpen = ref(false)
+const route = useRoute()
+
+const closeMenu = () => {
+  isMenuOpen.value = false
+}
+
+// Watch for route changes to close the menu
+watch(
+  () => route.path,
+  () => {
+    closeMenu()
+  },
+)
+
+// --- THIS IS THE NEW LOGIC FOR THE BLUR EFFECT ---
+watch(isMenuOpen, (isOpen) => {
+  const mainContent = document.querySelector('main')
+  if (mainContent) {
+    if (isOpen) {
+      mainContent.classList.add('blur-background')
+    } else {
+      mainContent.classList.remove('blur-background')
+    }
+  }
+})
 </script>
 
+<style>
+/* Change scoped to a global style tag for the blur */
+/* Add the blur class here */
+main.blur-background {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.3s ease-in-out;
+}
+</style>
 <style scoped>
 /* We create a scoped style block for component-specific CSS */
 .main-header {
@@ -64,15 +112,6 @@ import { RouterLink } from 'vue-router'
   font-size: 24px;
   cursor: pointer;
   color: var(--text-color);
-}
-
-/* ADD THIS NEW RULE */
-main.blur-background {
-  filter: blur(4px);
-  /* Make the background unclickable */
-  pointer-events: none;
-  user-select: none;
-  transition: filter 0.3s ease-in-out;
 }
 
 /* ============================================= */

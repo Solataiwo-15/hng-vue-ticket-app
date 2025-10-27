@@ -174,10 +174,16 @@ import { RouterLink } from 'vue-router'
 
 /* This is the container for the icon */
 .feature-icon {
-  /* We only need to define its size and spacing here */
   width: 60px;
   height: 60px;
   margin-bottom: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color); /* THIS WAS MISSING */
+  color: #ffffff; /* THIS WAS MISSING */
+  font-size: 24px;
 }
 
 /* This is the new rule that styles the icon itself */
