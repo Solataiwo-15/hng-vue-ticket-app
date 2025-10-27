@@ -1,0 +1,81 @@
+<template>
+  <div class="auth-container">
+    <div class="auth-card card">
+      <RouterLink to="/" class="auth-logo">TicketApp</RouterLink>
+      <h1 class="auth-title">{{ title }}</h1>
+
+      <!-- This slot is where the form will be injected -->
+      <slot></slot>
+
+      <div class="auth-footer">
+        {{ footerText }} <RouterLink :to="footerLink">{{ footerLinkText }}</RouterLink>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { RouterLink } from 'vue-router'
+
+// Define the props this component accepts
+defineProps({
+  title: String,
+  footerText: String,
+  footerLink: String,
+  footerLinkText: String,
+})
+</script>
+
+<style scoped>
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.auth-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.auth-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 32px;
+  color: var(--text-color);
+}
+
+.auth-footer {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text-color-muted);
+}
+
+.auth-footer a {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+}
+</style>
