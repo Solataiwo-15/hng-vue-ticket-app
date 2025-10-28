@@ -1,7 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit" class="auth-form" noValidate>
     <h2 class="auth-title">Edit Ticket #{{ ticket.id }}</h2>
-    <!-- ... form content is correct ... -->
     <div class="form-group">
       <label for="edit-title">Title</label>
       <input id="edit-title" type="text" class="form-input" v-model="formData.title" />
@@ -32,7 +31,6 @@
 </template>
 
 <script setup>
-// ... your script setup is correct ...
 import { ref, reactive, watch } from 'vue'
 const props = defineProps({ ticket: Object })
 const emit = defineEmits(['save', 'cancel'])
@@ -54,16 +52,13 @@ const handleSubmit = () => {
   }
   error.value = ''
 
-  // When saving, we create a new object that combines the original ticket ID
-  // with the new data from the form.
   emit('save', {
-    ...props.ticket, // Keep original id, priority, etc.
-    ...formData, // Overwrite with new title, description, status
+    ...props.ticket,
+    ...formData,
   })
 }
 </script>
 
-<!-- ADD THIS ENTIRE STYLE BLOCK -->
 <style scoped>
 .auth-title {
   font-size: 24px;

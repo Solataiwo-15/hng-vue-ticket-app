@@ -4,7 +4,6 @@
       <RouterLink to="/" class="auth-logo">TicketApp</RouterLink>
       <h1 class="auth-title">{{ title }}</h1>
 
-      <!-- This slot is where the form will be injected -->
       <slot></slot>
 
       <div class="auth-footer">
@@ -17,7 +16,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
-// Define the props this component accepts
 defineProps({
   title: String,
   footerText: String,

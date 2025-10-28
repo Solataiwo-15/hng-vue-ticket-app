@@ -51,12 +51,10 @@ import AuthLayout from '../components/AuthLayout.vue'
 
 const router = useRouter()
 
-// State for form inputs
 const fullName = ref('')
 const email = ref('')
 const password = ref('')
 
-// State for error messages
 const fullNameError = ref('')
 const emailError = ref('')
 const passwordError = ref('')
@@ -90,7 +88,6 @@ const handleSignup = () => {
     return
   }
 
-  // Simulate Successful Signup & Login
   const session = {
     token: 'dummy-jwt-token-for-hng-task-signup',
     user: { name: fullName.value, email: email.value },
@@ -103,7 +100,6 @@ const handleSignup = () => {
 </script>
 
 <style scoped>
-/* We can reuse the same styles from the LoginPage, so this can be minimal */
 .auth-form {
   text-align: left;
 }
@@ -120,10 +116,10 @@ const handleSignup = () => {
 }
 
 .error-message {
-  color: #ef4444; /* A modern red for errors */
+  color: #ef4444;
   font-size: 14px;
   margin-top: 1px;
-  min-height: 1em; /* Prevents layout shifts */
+  min-height: 1em;
 }
 
 .btn.full-width {

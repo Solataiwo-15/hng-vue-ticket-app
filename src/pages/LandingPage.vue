@@ -3,7 +3,6 @@
     <Navbar />
 
     <main>
-      <!-- --- Hero Section --- -->
       <section class="hero-section">
         <div className="decorative-circle circle-1"></div>
         <div className="decorative-circle circle-2"></div>
@@ -25,7 +24,6 @@
         </div>
       </section>
 
-      <!-- --- Features Section --- -->
       <section class="features-section">
         <div class="container">
           <h2>Why Choose TicketApp?</h2>
@@ -61,17 +59,13 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <style scoped>
-/* ============================================= */
-/* --- CORRECTED HERO SECTION STYLING --- */
-/* ============================================= */
 .hero-section {
-  /* The key fix: Use the SVG as the background */
   background-image: url('../assets/svg/hero-wave.svg');
   background-size: 100% auto;
   background-position: center bottom;
   background-repeat: no-repeat;
 
-  padding: 150px 0; /* Generous padding */
+  padding: 150px 0;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -80,9 +74,8 @@ import { RouterLink } from 'vue-router'
 .hero-text h1 {
   font-size: 52px;
   font-weight: 700;
-  /* High-contrast white text */
   color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add shadow for readability */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 24px;
   max-width: 650px;
   margin-left: auto;
@@ -92,7 +85,6 @@ import { RouterLink } from 'vue-router'
 
 .hero-text p {
   font-size: 18px;
-  /* High-contrast, slightly transparent white */
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 40px;
   max-width: 550px;
@@ -106,11 +98,10 @@ import { RouterLink } from 'vue-router'
   gap: 16px;
 }
 
-/* Decorative circles */
 .decorative-circle {
   position: absolute;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.05); /* Subtle white circles */
+  background-color: rgba(255, 255, 255, 0.05);
   z-index: 0;
 }
 
@@ -144,14 +135,10 @@ import { RouterLink } from 'vue-router'
   z-index: 1;
 }
 
-/* ============================================= */
-/* --- REDESIGNED FEATURES SECTION STYLING --- */
-/* ============================================= */
 .features-section {
-  /* Reduced padding as you requested */
   padding: 50px 0;
   text-align: center;
-  background-color: var(--background-color); /* Use the light grey background */
+  background-color: var(--background-color);
 }
 
 .features-section h2 {
@@ -164,15 +151,13 @@ import { RouterLink } from 'vue-router'
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
-  text-align: left; /* Align text inside cards to the left */
+  text-align: left;
 }
 
 .feature-card {
-  /* We'll override the default card padding */
   padding: 32px;
 }
 
-/* This is the container for the icon */
 .feature-icon {
   width: 60px;
   height: 60px;
@@ -181,12 +166,11 @@ import { RouterLink } from 'vue-router'
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color); /* THIS WAS MISSING */
-  color: #ffffff; /* THIS WAS MISSING */
+  background-color: var(--primary-color);
+  color: #ffffff;
   font-size: 24px;
 }
 
-/* This is the new rule that styles the icon itself */
 .feature-icon i {
   width: 100%;
   height: 100%;
@@ -213,34 +197,20 @@ import { RouterLink } from 'vue-router'
   line-height: 1.7;
 }
 
-/* ============================================= */
-/* --- LANDING PAGE RESPONSIVENESS --- */
-/* ============================================= */
-
 @media (max-width: 768px) {
   .hero-section {
-    padding: 80px 0; /* Reduce padding on smaller screens */
-
-    /* 
-           THIS IS THE KEY FIX for the SVG background.
-           'cover' will scale the image down to fill the container,
-           which works much better for a tall, narrow mobile screen.
-        */
+    padding: 80px 0;
     background-size: cover;
   }
 
   .hero-text h1 {
-    font-size: 36px; /* Reduce font size for readability */
+    font-size: 36px;
   }
 
   .hero-text p {
     font-size: 16px;
   }
 
-  /* 
-       THIS IS THE FIX for the circles.
-       We will shrink them and reposition them for mobile.
-    */
   .circle-1 {
     width: 200px;
     height: 200px;
@@ -256,7 +226,6 @@ import { RouterLink } from 'vue-router'
   }
 
   .circle-3 {
-    /* We can hide the third circle on mobile to reduce clutter */
     display: none;
   }
 

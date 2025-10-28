@@ -51,15 +51,13 @@ import TicketModal from '../components/TicketModal.vue'
 import CreateTicketForm from '../components/CreateTicketForm.vue'
 import EditTicketForm from '../components/EditTicketForm.vue'
 
-// --- STATE ---
 const tickets = ref(initialTickets)
 const isCreateModalOpen = ref(false)
 const isEditModalOpen = ref(false)
 const currentlyEditingTicket = ref(null)
 
-// --- METHODS ---
 const handleAddTicket = (newTicket) => {
-  tickets.value.unshift(newTicket) // Add to the beginning of the array
+  tickets.value.unshift(newTicket)
   isCreateModalOpen.value = false
 }
 
@@ -123,15 +121,10 @@ const handleCloseEditModal = () => {
   gap: 24px;
 }
 
-/* ============================================= */
-/* --- TICKET PAGE RESPONSIVENESS --- */
-/* ============================================= */
-
 @media (max-width: 768px) {
   .ticket-page-header {
-    /* Stack the title and button on mobile */
     flex-direction: column;
-    align-items: flex-start; /* Align to the left */
+    align-items: flex-start;
     gap: 16px;
   }
 
@@ -140,7 +133,6 @@ const handleCloseEditModal = () => {
   }
 
   .ticket-list {
-    /* Ensure a single column on small screens */
     grid-template-columns: 1fr;
   }
 }

@@ -1,5 +1,3 @@
-// src/utils/mock-data.js
-
 export const initialTickets = [
   {
     id: 'TICKET-001',

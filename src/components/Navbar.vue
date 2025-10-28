@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue' // Import more hooks
+import { ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
 const isMenuOpen = ref(false)
@@ -33,16 +33,12 @@ const route = useRoute()
 const closeMenu = () => {
   isMenuOpen.value = false
 }
-
-// Watch for route changes to close the menu
 watch(
   () => route.path,
   () => {
     closeMenu()
   },
 )
-
-// --- THIS IS THE NEW LOGIC FOR THE BLUR EFFECT ---
 watch(isMenuOpen, (isOpen) => {
   const mainContent = document.querySelector('main')
   if (mainContent) {
@@ -56,8 +52,6 @@ watch(isMenuOpen, (isOpen) => {
 </script>
 
 <style>
-/* Change scoped to a global style tag for the blur */
-/* Add the blur class here */
 main.blur-background {
   filter: blur(4px);
   pointer-events: none;
@@ -65,8 +59,8 @@ main.blur-background {
   transition: filter 0.3s ease-in-out;
 }
 </style>
+
 <style scoped>
-/* We create a scoped style block for component-specific CSS */
 .main-header {
   background-color: var(--surface-color);
   padding: 16px 0;
@@ -104,19 +98,14 @@ main.blur-background {
   margin-right: 16px;
 }
 
-/* --- Hamburger Menu Button (hidden on desktop) --- */
 .hamburger-menu {
-  display: none; /* Hide by default */
+  display: none;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
   color: var(--text-color);
 }
-
-/* ============================================= */
-/* --- FINAL MOBILE SIDEBAR STYLES --- */
-/* ============================================= */
 
 @media (max-width: 768px) {
   .nav-links {
@@ -128,15 +117,12 @@ main.blur-background {
     height: 100%;
     background-color: var(--surface-color);
     box-shadow: -4px 0px 20px rgba(0, 0, 0, 0.1);
-
     display: flex;
     flex-direction: column;
-
-    /* --- THE ALIGNMENT & SPACING FIX --- */
-    align-items: flex-start; /* Strictly align everything to the left */
+    align-items: flex-start;
     justify-content: flex-start;
-    padding: 65px 35px; /* Consistent padding */
-    gap: 25px; /* Tighter, more consistent spacing */
+    padding: 65px 35px;
+    gap: 25px;
 
     transition: right 0.35s ease-in-out;
     z-index: 1002;
@@ -147,35 +133,23 @@ main.blur-background {
     right: 0;
   }
 
-  /* This rule targets EVERY item in the menu for consistency */
-  /* This rule targets EVERY item in the menu for consistency */
-  /* This rule targets EVERY item in the menu for a complete and consistent reset */
   .nav-links li > * {
-    /* === FONT & COLOR RESET === */
-    font-family: 'Poppins', sans-serif !important; /* THE CRITICAL FIX: Force our desired font */
+    font-family: 'Poppins', sans-serif !important;
     font-size: 18px !important;
     font-weight: 500 !important;
     color: var(--text-color) !important;
-
-    /* === VISUAL STYLE RESET === */
     background: none !important;
     border: none !important;
     padding: 0 !important;
-
-    /* === ALIGNMENT & BEHAVIOR RESET === */
     text-align: left !important;
     cursor: pointer !important;
-
-    /* === HOVER EFFECT === */
     transition: color 0.2s;
   }
 
-  /* Add a hover effect for the items */
   .nav-links li > *:hover {
     color: var(--primary-color) !important;
   }
 
-  /* Add a hover effect for the items */
   .nav-links li > *:hover {
     color: var(--primary-color) !important;
   }
@@ -183,24 +157,22 @@ main.blur-background {
   .hamburger-menu {
     display: block;
     z-index: 1003;
-    position: fixed; /* Fix hamburger to the top right */
+    position: fixed;
     top: 16px;
     right: 24px;
   }
 
-  /* We also need to fix the main header to not interfere */
   .main-nav {
-    justify-content: flex-start; /* Align logo to the left */
+    justify-content: flex-start;
   }
 
   .nav-user {
     order: -1;
   }
 
-  /* ADD THIS NEW RULE */
   .nav-links .nav-user {
-    color: var(--text-color-muted) !important; /* Use the muted text color */
-    font-weight: 400 !important; /* Make it slightly less bold */
+    color: var(--text-color-muted) !important;
+    font-weight: 400 !important;
   }
 }
 </style>

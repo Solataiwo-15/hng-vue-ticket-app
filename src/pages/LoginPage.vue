@@ -38,18 +38,14 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import AuthLayout from '../components/AuthLayout.vue'
 
-// Get the router instance for redirection
 const router = useRouter()
 
-// State for form inputs (Vue's equivalent of useState)
 const email = ref('')
 const password = ref('')
 
-// State for error messages
 const emailError = ref('')
 const passwordError = ref('')
 
-// Function to handle form submission
 const handleLogin = () => {
   let isValid = true
   emailError.value = ''
@@ -68,7 +64,6 @@ const handleLogin = () => {
     return
   }
 
-  // Simulate Authentication
   const session = {
     token: 'fake-jwt-token-for-hng-task',
     user: { name: 'Ahmad Taiwo', email: email.value },
@@ -76,7 +71,6 @@ const handleLogin = () => {
   }
   localStorage.setItem('ticketapp_session', JSON.stringify(session))
 
-  // Redirect to Dashboard
   router.push('/dashboard')
 }
 </script>
@@ -98,10 +92,10 @@ const handleLogin = () => {
 }
 
 .error-message {
-  color: #ef4444; /* A modern red for errors */
+  color: #ef4444;
   font-size: 14px;
   margin-top: 1px;
-  min-height: 1em; /* Prevents layout shifts */
+  min-height: 1em;
 }
 
 .btn.full-width {

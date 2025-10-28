@@ -53,16 +53,9 @@ defineEmits(['close'])
   color: var(--text-color);
 }
 
-/* ============================================= */
-/* --- MODAL RESPONSIVENESS --- */
-/* ============================================= */
-
 @media (max-width: 768px) {
   .modal-content {
-    /* Reduce padding on smaller screens */
     padding: 30px 20px;
-
-    /* Optional: Add a little margin so it doesn't touch the very edges */
     margin: 0 20px;
   }
 }

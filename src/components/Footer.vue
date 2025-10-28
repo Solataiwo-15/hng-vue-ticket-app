@@ -5,7 +5,3 @@
     </div>
   </footer>
 </template>
-
-<script setup>
-// No script logic needed for this simple component
-</script>

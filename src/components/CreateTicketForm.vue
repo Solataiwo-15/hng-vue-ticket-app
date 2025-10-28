@@ -45,39 +45,31 @@ const description = ref('')
 const status = ref('open')
 const error = ref('')
 
-// This defines the events the component can send to its parent
 const emit = defineEmits(['save', 'cancel'])
 
-// This is the full, working handleSubmit function
 const handleSubmit = () => {
-  // 1. Validation
   if (title.value.trim() === '') {
     error.value = 'Title is mandatory.'
-    return // Stop the function if validation fails
   }
   if (!['open', 'in_progress', 'closed'].includes(status.value)) {
     error.value = 'Invalid status selected.'
     return
   }
-  // Clear any previous errors if validation passes
   error.value = ''
 
-  // 2. Create the new ticket object
   const newTicket = {
-    id: `TICKET-${Math.floor(1000 + Math.random() * 9000)}`, // Better random ID
+    id: `TICKET-${Math.floor(1000 + Math.random() * 9000)}`,
     title: title.value,
     description: description.value,
     status: status.value,
-    priority: 'medium', // Default priority
+    priority: 'medium',
     createdAt: new Date(),
   }
 
-  // 3. Emit the 'save' event with the new ticket data
   emit('save', newTicket)
 }
 </script>
 
-<!-- ADD THIS ENTIRE STYLE BLOCK -->
 <style scoped>
 .auth-title {
   font-size: 24px;

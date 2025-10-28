@@ -20,12 +20,9 @@
 </template>
 
 <script setup>
-// Define the props this component accepts
 defineProps({
   ticket: Object,
 })
-
-// Define the events this component can emit to its parent
 defineEmits(['edit', 'delete'])
 </script>
 

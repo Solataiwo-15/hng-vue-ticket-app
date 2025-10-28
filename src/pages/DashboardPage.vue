@@ -10,7 +10,6 @@
         </header>
 
         <div class="stats-grid">
-          <!-- Total Tickets Card -->
           <div class="card stat-card total-tickets">
             <div class="stat-icon">
               <i class="fas fa-ticket-alt"></i>
@@ -22,7 +21,6 @@
             </div>
           </div>
 
-          <!-- Open Tickets Card -->
           <div class="card stat-card open-tickets">
             <div class="stat-icon">
               <i class="fas fa-envelope-open-text"></i>
@@ -34,7 +32,6 @@
             </div>
           </div>
 
-          <!-- Resolved Tickets Card -->
           <div class="card stat-card resolved-tickets">
             <div class="stat-icon">
               <i class="fas fa-check-circle"></i>
@@ -58,7 +55,6 @@ import { reactive } from 'vue'
 import DashboardNavbar from '../components/DashboardNavbar.vue'
 import Footer from '../components/Footer.vue'
 
-// Use reactive for our stats object
 const stats = reactive({
   totalTickets: 25,
   openTickets: 12,
@@ -74,7 +70,7 @@ const stats = reactive({
 }
 
 .dashboard-main {
-  flex-grow: 1; /* Ensures the main content takes up available space */
+  flex-grow: 1;
 }
 
 .dashboard-header {
@@ -101,9 +97,8 @@ const stats = reactive({
 
 .stat-card {
   display: flex;
-  /* This is the key: space between the two main items */
   justify-content: space-between;
-  align-items: flex-start; /* Vertically center them */
+  align-items: flex-start;
   padding: 24px;
   min-height: 200px;
   box-sizing: border-box;
@@ -118,12 +113,10 @@ const stats = reactive({
   justify-content: center;
   font-size: 24px;
   color: #ffffff;
-  /* flex-shrink: 0 prevents the icon from shrinking */
   flex-shrink: 0;
   margin-top: 5px;
 }
 
-/* Smart color variations for each card */
 .total-tickets .stat-icon {
   background-color: var(--primary-color);
 }
@@ -134,13 +127,7 @@ const stats = reactive({
   background-color: var(--status-open);
 }
 
-/* Before (delete these) */
-/* .stat-info h2 { ... } */
-/* .stat-info p { ... } */
-
-/* After (add this block) */
 .stat-info {
-  /* This aligns the text INSIDE this block to the right */
   text-align: right;
   margin-top: 5px;
 }
@@ -158,7 +145,6 @@ const stats = reactive({
   color: var(--text-color-muted);
 }
 
-/* This is the new style for our smart content */
 .stat-context {
   font-size: 14px !important;
   color: var(--text-color-muted) !important;
@@ -166,14 +152,6 @@ const stats = reactive({
   font-weight: 400 !important;
   margin-top: 4px !important;
 }
-
-/* ============================================= */
-/* --- DASHBOARD RESPONSIVENESS --- */
-/* ============================================= */
-
-/* ============================================= */
-/* --- DASHBOARD RESPONSIVENESS --- */
-/* ============================================= */
 
 @media (max-width: 768px) {
   .dashboard-header h1 {
@@ -186,7 +164,7 @@ const stats = reactive({
 
   .stat-card {
     padding: 24px;
-    min-height: auto; /* Allow height to be natural on mobile */
+    min-height: auto;
   }
 
   .stat-info h2 {
